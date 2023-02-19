@@ -1,0 +1,181 @@
+2022-09-18 11:46:37.688 MSK [2440] СООБЩЕНИЕ:  запускается PostgreSQL 14.5, compiled by Visual C++ build 1914, 64-bit
+2022-09-18 11:46:37.688 MSK [2440] СООБЩЕНИЕ:  для приёма подключений по адресу IPv6 "::" открыт порт 5432
+2022-09-18 11:46:37.689 MSK [2440] СООБЩЕНИЕ:  для приёма подключений по адресу IPv4 "0.0.0.0" открыт порт 5432
+2022-09-18 11:46:37.718 MSK [4068] СООБЩЕНИЕ:  система БД была выключена: 2022-09-17 18:17:45 MSK
+2022-09-18 11:46:37.746 MSK [2440] СООБЩЕНИЕ:  система БД готова принимать подключения
+2022-09-18 12:03:14.447 MSK [3996] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "'geek'") (СЃРёРјРІРѕР» 13)
+2022-09-18 12:03:14.447 MSK [3996] РћРџР•Р РђРўРћР :  CREATE USER 'geek'@'localhost' IDENTIFIED BY 'geek';
+	GRANT ALL PRIVILEGES ON * . * TO 'geek'@'localhost';
+	
+	DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS authors;
+	CREATE TABLE authors (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    author_id int(11) DEFAULT NULL,
+	    PRIMARY KEY(id),
+	    CONSTRAINT FK_AUTH_ID FOREIGN KEY (author_id)
+	    REFERENCES authors (id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS readers;
+	CREATE TABLE readers (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	CREATE TABLE books_readers (
+		book_id int(11) NOT NULL,
+	    reader_id int(11) NOT NULL,
+	
+	    PRIMARY KEY (book_id, reader_id),
+	
+	    CONSTRAINT FK_BOOK FOREIGN KEY (book_id)
+	    REFERENCES books (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION,
+	
+	    CONSTRAINT FK_READER FOREIGN KEY (reader_id)
+	    REFERENCES readers (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-18 12:03:27.018 MSK [3996] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "(") (СЃРёРјРІРѕР» 63)
+2022-09-18 12:03:27.018 MSK [3996] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS authors;
+	CREATE TABLE authors (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    author_id int(11) DEFAULT NULL,
+	    PRIMARY KEY(id),
+	    CONSTRAINT FK_AUTH_ID FOREIGN KEY (author_id)
+	    REFERENCES authors (id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS readers;
+	CREATE TABLE readers (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	CREATE TABLE books_readers (
+		book_id int(11) NOT NULL,
+	    reader_id int(11) NOT NULL,
+	
+	    PRIMARY KEY (book_id, reader_id),
+	
+	    CONSTRAINT FK_BOOK FOREIGN KEY (book_id)
+	    REFERENCES books (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION,
+	
+	    CONSTRAINT FK_READER FOREIGN KEY (reader_id)
+	    REFERENCES readers (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-18 12:03:44.092 MSK [3996] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "AUTO_INCREMENT") (СЃРёРјРІРѕР» 74)
+2022-09-18 12:03:44.092 MSK [3996] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id int  NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS authors;
+	CREATE TABLE authors (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    author_id int(11) DEFAULT NULL,
+	    PRIMARY KEY(id),
+	    CONSTRAINT FK_AUTH_ID FOREIGN KEY (author_id)
+	    REFERENCES authors (id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	DROP TABLE IF EXISTS readers;
+	CREATE TABLE readers (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+	
+	CREATE TABLE books_readers (
+		book_id int(11) NOT NULL,
+	    reader_id int(11) NOT NULL,
+	
+	    PRIMARY KEY (book_id, reader_id),
+	
+	    CONSTRAINT FK_BOOK FOREIGN KEY (book_id)
+	    REFERENCES books (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION,
+	
+	    CONSTRAINT FK_READER FOREIGN KEY (reader_id)
+	    REFERENCES readers (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-18 12:12:30.596 MSK [864] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-18 12:12:30.596 MSK [5496] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-18 12:12:30.596 MSK [3996] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-18 12:12:30.597 MSK [1360] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-18 12:46:13.231 MSK [2440] СООБЩЕНИЕ:  получен запрос на быстрое выключение
+2022-09-18 12:46:13.232 MSK [2440] СООБЩЕНИЕ:  прерывание всех активных транзакций
+2022-09-18 12:46:13.236 MSK [2488] ОШИБКА:  выполнение оператора отменено по запросу пользователя
+2022-09-18 12:46:13.268 MSK [2440] СООБЩЕНИЕ:  фоновый процесс "logical replication launcher" (PID 2488) завершился с кодом выхода 1
+2022-09-18 12:46:13.283 MSK [1784] СООБЩЕНИЕ:  выключение
+2022-09-18 12:46:13.325 MSK [2440] СООБЩЕНИЕ:  система БД выключена

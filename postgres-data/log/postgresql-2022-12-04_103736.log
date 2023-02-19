@@ -1,0 +1,11 @@
+2022-12-04 10:37:36.284 MSK [6976] LOG:  starting PostgreSQL 14.5, compiled by Visual C++ build 1914, 64-bit
+2022-12-04 10:37:36.285 MSK [6976] LOG:  listening on IPv6 address "::", port 5432
+2022-12-04 10:37:36.285 MSK [6976] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2022-12-04 10:37:36.317 MSK [5212] LOG:  database system was shut down at 2022-12-03 15:12:36 MSK
+2022-12-04 10:37:36.330 MSK [6976] LOG:  database system is ready to accept connections
+2022-12-04 13:34:15.871 MSK [6976] LOG:  received fast shutdown request
+2022-12-04 13:34:15.872 MSK [6976] LOG:  aborting any active transactions
+2022-12-04 13:34:15.875 MSK [2800] ERROR:  canceling statement due to user request
+2022-12-04 13:34:15.877 MSK [6976] LOG:  background worker "logical replication launcher" (PID 2800) exited with exit code 1
+2022-12-04 13:34:15.877 MSK [5184] LOG:  shutting down
+2022-12-04 13:34:15.890 MSK [6976] LOG:  database system is shut down

@@ -1,0 +1,18 @@
+2022-12-24 11:23:55.750 MSK [6936] LOG:  starting PostgreSQL 14.5, compiled by Visual C++ build 1914, 64-bit
+2022-12-24 11:23:55.751 MSK [6936] LOG:  listening on IPv6 address "::", port 5432
+2022-12-24 11:23:55.751 MSK [6936] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2022-12-24 11:23:55.787 MSK [7716] LOG:  database system was shut down at 2022-12-23 12:56:15 MSK
+2022-12-24 11:23:55.801 MSK [6936] LOG:  database system is ready to accept connections
+2022-12-24 13:43:08.207 MSK [5768] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-24 13:43:08.207 MSK [6568] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-24 13:43:08.209 MSK [8172] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-24 13:43:08.226 MSK [9164] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-24 14:42:18.567 MSK [6936] LOG:  received fast shutdown request
+2022-12-24 14:42:18.570 MSK [6936] LOG:  aborting any active transactions
+2022-12-24 14:42:18.577 MSK [6936] LOG:  background worker "logical replication launcher" (PID 1844) exited with exit code 1
+2022-12-24 14:42:18.581 MSK [5656] LOG:  shutting down
+2022-12-24 14:42:18.600 MSK [6936] LOG:  database system is shut down

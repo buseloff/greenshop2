@@ -1,0 +1,70 @@
+2022-12-23 10:30:49.853 MSK [1612] LOG:  starting PostgreSQL 14.5, compiled by Visual C++ build 1914, 64-bit
+2022-12-23 10:30:49.853 MSK [1612] LOG:  listening on IPv6 address "::", port 5432
+2022-12-23 10:30:49.853 MSK [1612] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2022-12-23 10:30:49.885 MSK [4368] LOG:  database system was shut down at 2022-12-18 14:23:37 MSK
+2022-12-23 10:30:49.898 MSK [1612] LOG:  database system is ready to accept connections
+2022-12-23 10:42:41.051 MSK [7436] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 10:42:41.051 MSK [7376] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 10:42:41.051 MSK [7008] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 10:42:41.052 MSK [7008] LOG:  unexpected EOF on client connection with an open transaction
+2022-12-23 10:42:41.051 MSK [6412] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 10:42:41.052 MSK [6412] LOG:  unexpected EOF on client connection with an open transaction
+2022-12-23 10:42:41.052 MSK [3772] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 10:42:41.053 MSK [3772] LOG:  unexpected EOF on client connection with an open transaction
+2022-12-23 10:42:41.053 MSK [1188] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 10:42:41.053 MSK [1188] LOG:  unexpected EOF on client connection with an open transaction
+2022-12-23 11:35:33.468 MSK [8076] ERROR:  column "image_data" is of type bytea but expression is of type bigint at character 83
+2022-12-23 11:35:33.468 MSK [8076] HINT:  You will need to rewrite or cast the expression.
+2022-12-23 11:35:33.468 MSK [8076] STATEMENT:  insert into products (category_id, image_data, name, price, quantity) values ($1, $2, $3, $4, $5)
+	RETURNING *
+2022-12-23 11:35:33.477 MSK [8076] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2022-12-23 11:35:33.477 MSK [8076] STATEMENT:  
+2022-12-23 12:05:15.612 MSK [4436] ERROR:  cannot drop the currently open database
+2022-12-23 12:05:15.612 MSK [4436] STATEMENT:  drop DATABASE shop_db1;
+2022-12-23 12:05:48.854 MSK [8100] ERROR:  database "shop_db1" is being accessed by other users
+2022-12-23 12:05:48.854 MSK [8100] DETAIL:  There are 2 other sessions using the database.
+2022-12-23 12:05:48.854 MSK [8100] STATEMENT:  drop database shop_db1
+2022-12-23 12:06:04.358 MSK [7336] ERROR:  database "shop_db1" is being accessed by other users
+2022-12-23 12:06:04.358 MSK [7336] DETAIL:  There is 1 other session using the database.
+2022-12-23 12:06:04.358 MSK [7336] STATEMENT:  DROP DATABASE IF EXISTS shop_db1;
+	
+2022-12-23 12:06:26.699 MSK [7336] ERROR:  database "shop_db1" is being accessed by other users
+2022-12-23 12:06:26.699 MSK [7336] DETAIL:  There is 1 other session using the database.
+2022-12-23 12:06:26.699 MSK [7336] STATEMENT:  DROP DATABASE IF EXISTS shop_db1;
+	
+2022-12-23 12:06:53.374 MSK [7336] ERROR:  database "shop_db1" is being accessed by other users
+2022-12-23 12:06:53.374 MSK [7336] DETAIL:  There is 1 other session using the database.
+2022-12-23 12:06:53.374 MSK [7336] STATEMENT:  DROP DATABASE IF EXISTS shop_db1;
+	
+2022-12-23 12:20:42.218 MSK [1052] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:20:42.218 MSK [2484] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:20:42.218 MSK [4444] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:20:42.218 MSK [8100] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:20:42.218 MSK [7336] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:20:42.221 MSK [4436] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:20:42.222 MSK [4212] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:42:37.023 MSK [212] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:42:37.024 MSK [5052] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:42:37.025 MSK [6152] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-12-23 12:56:15.323 MSK [1612] LOG:  received fast shutdown request
+2022-12-23 12:56:15.326 MSK [1612] LOG:  aborting any active transactions
+2022-12-23 12:56:15.329 MSK [1888] ERROR:  canceling statement due to user request
+2022-12-23 12:56:15.333 MSK [1612] LOG:  background worker "logical replication launcher" (PID 1888) exited with exit code 1
+2022-12-23 12:56:15.334 MSK [6156] LOG:  shutting down
+2022-12-23 12:56:15.354 MSK [1612] LOG:  database system is shut down

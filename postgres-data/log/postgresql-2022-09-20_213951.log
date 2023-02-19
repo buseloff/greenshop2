@@ -1,0 +1,116 @@
+2022-09-20 21:39:51.608 MSK [4508] СООБЩЕНИЕ:  запускается PostgreSQL 14.5, compiled by Visual C++ build 1914, 64-bit
+2022-09-20 21:39:51.611 MSK [4508] СООБЩЕНИЕ:  для приёма подключений по адресу IPv6 "::" открыт порт 5432
+2022-09-20 21:39:51.611 MSK [4508] СООБЩЕНИЕ:  для приёма подключений по адресу IPv4 "0.0.0.0" открыт порт 5432
+2022-09-20 21:39:51.643 MSK [6052] СООБЩЕНИЕ:  система БД была выключена: 2022-09-18 12:46:13 MSK
+2022-09-20 21:39:51.675 MSK [4508] СООБЩЕНИЕ:  система БД готова принимать подключения
+2022-09-20 21:40:07.531 MSK [6708] РћРЁРР‘РљРђ:  РѕС‚РЅРѕС€РµРЅРёРµ "readers" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ (СЃРёРјРІРѕР» 66)
+2022-09-20 21:40:07.531 MSK [6708] РћРџР•Р РђРўРћР :  select reader0_.id as id1_4_0_, reader0_.name as name2_4_0_ from readers reader0_ where reader0_.id=$1
+2022-09-20 21:40:08.066 MSK [6708] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 21:44:09.461 MSK [1276] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "(") (СЃРёРјРІРѕР» 63)
+2022-09-20 21:44:09.461 MSK [1276] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id int(11) NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-20 21:44:16.963 MSK [1276] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "AUTO_INCREMENT") (СЃРёРјРІРѕР» 73)
+2022-09-20 21:44:16.963 MSK [1276] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id int NOT NULL AUTO_INCREMENT,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-20 21:44:56.227 MSK [1276] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "SERIAL") (СЃРёРјРІРѕР» 73)
+2022-09-20 21:44:56.227 MSK [1276] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id int NOT NULL SERIAL,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-20 21:45:21.012 MSK [1276] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "ENGINE") (СЃРёРјРІРѕР» 136)
+2022-09-20 21:45:21.012 MSK [1276] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id SERIAL NOT NULL,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	) ENGINE=InnoDB CHARSET=utf8;
+2022-09-20 21:48:25.495 MSK [1276] РћРЁРР‘РљРђ:  РѕС€РёР±РєР° СЃРёРЅС‚Р°РєСЃРёСЃР° (РїСЂРёРјРµСЂРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ: "(") (СЃРёРјРІРѕР» 526)
+2022-09-20 21:48:25.495 MSK [1276] РћРџР•Р РђРўРћР :  DROP TABLE IF EXISTS catalogs;
+	CREATE TABLE catalogs (
+		id SERIAL NOT NULL,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	);
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id SERIAL NOT NULL,
+	    title VARCHAR(100) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	);
+	
+	DROP TABLE IF EXISTS authors;
+	CREATE TABLE authors (
+		id SERIAL NOT NULL,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	);
+	
+	DROP TABLE IF EXISTS books;
+	CREATE TABLE books (
+		id SERIAL NOT NULL,
+	    title VARCHAR(100) DEFAULT NULL,
+	    author_id int(11) DEFAULT NULL,
+	    PRIMARY KEY(id),
+	    CONSTRAINT FK_AUTH_ID FOREIGN KEY (author_id)
+	    REFERENCES authors (id)
+	);
+	
+	DROP TABLE IF EXISTS readers;
+	CREATE TABLE readers (
+		id SERIAL NOT NULL,
+	    name VARCHAR(80) DEFAULT NULL,
+	    PRIMARY KEY(id)
+	);
+	
+	CREATE TABLE books_readers (
+		book_id int NOT NULL,
+	    reader_id int NOT NULL,
+	
+	    PRIMARY KEY (book_id, reader_id),
+	
+	    CONSTRAINT FK_BOOK FOREIGN KEY (book_id)
+	    REFERENCES books (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION,
+	
+	    CONSTRAINT FK_READER FOREIGN KEY (reader_id)
+	    REFERENCES readers (id)
+	    ON DELETE NO ACTION ON UPDATE NO ACTION
+	);
+2022-09-20 21:48:41.563 MSK [8496] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 21:49:41.129 MSK [7012] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 21:50:41.329 MSK [1088] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.154 MSK [7740] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.154 MSK [1276] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.155 MSK [4396] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.155 MSK [1936] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.156 MSK [5264] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.156 MSK [8460] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:03:30.157 MSK [7980] РЎРћРћР‘Р©Р•РќРР•:  РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕС‚ РєР»РёРµРЅС‚Р°: An existing connection was forcibly closed by the remote host.
+	
+2022-09-20 22:12:20.679 MSK [4508] СООБЩЕНИЕ:  получен запрос на быстрое выключение
+2022-09-20 22:12:20.680 MSK [4508] СООБЩЕНИЕ:  прерывание всех активных транзакций
+2022-09-20 22:12:20.682 MSK [4884] ОШИБКА:  выполнение оператора отменено по запросу пользователя
+2022-09-20 22:12:20.725 MSK [4508] СООБЩЕНИЕ:  фоновый процесс "logical replication launcher" (PID 4884) завершился с кодом выхода 1
+2022-09-20 22:12:20.726 MSK [4048] СООБЩЕНИЕ:  выключение
+2022-09-20 22:12:20.787 MSK [4508] СООБЩЕНИЕ:  система БД выключена
