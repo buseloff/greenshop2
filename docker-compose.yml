@@ -26,8 +26,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./backend/target:/usr/local/tomcat/webapps
-      - ./tomcat-conf:/usr/local/tomcat/conf       
+      - ./backend/target:/usr/local/tomcat/webapps            
     depends_on:
       - postgresdb
     env_file:
