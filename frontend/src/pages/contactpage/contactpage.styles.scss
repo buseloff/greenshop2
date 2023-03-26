@@ -1,0 +1,81 @@
+html,
+body {
+  padding: 1em;
+}
+
+h1 {
+  text-align: center;
+  color: #a8a8a8;
+  text-shadow: 1px 1px 0 rgba(white, 1);
+}
+
+form {
+  max-width: 600px;
+  text-align: center;
+  margin: 20px auto;
+
+  input,
+  textarea {
+    border: 0;
+    outline: 0;
+    padding: 1em;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    box-shadow: 0 1px 1px rgba(black, 0.1);
+    resize: none;
+
+    &:focus {
+      box-shadow: 0 0px 2px rgba(black, 1);
+    }
+  }
+
+  #input-submit {
+    color: white;
+    background: black;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+  }
+
+  textarea {
+    height: 126px;
+  }
+}
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
+}
+
+.right {
+  width: 50%;
+}
+
+.left {
+  margin-right: 2%;
+}
+
+@media (max-width: 480px) {
+  .half {
+    width: 100%;
+    float: none;
+    margin-bottom: 0;
+  }
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}

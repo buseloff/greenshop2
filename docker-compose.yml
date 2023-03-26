@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  postgresdb:
+    image: postgres:14
+    restart: always
+    container_name: green_shop_postgres_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=alex
+      - POSTGRES_DB=shop_db
+    ports: 
+      - "5432:5432"
+    volumes:
+      - ./postgresdb:/var/lib/postgresql/data
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgresdb
+  frontend:
+    image: "green-shop-frontend-dev"
+    container_name: green_shop_frontend_dev
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+  backend:
+    image: "green-shop-backend-dev"
+    container_name: green_shop_backend_dev
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./tomcat:/usr/local/tomcat/webapps            
+    depends_on:
+      - postgresdb
+volumes:
+  postgresdb: 
+    driver: local
