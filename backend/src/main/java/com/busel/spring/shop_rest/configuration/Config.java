@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.io.FileInputStream;
@@ -22,8 +23,7 @@ public class Config {
     @Bean
     public DataSource dataSource() {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        Properties props = new Properties();
-
+        /*Properties props = new Properties();
         try (FileInputStream fis = new FileInputStream("C:\\Users\\Alexandr\\Downloads\\backend\\db.properties")) {
             props.load(fis);
             dataSource.setDriverClass(props.getProperty("POSTGRESQL_DB_DRIVER_CLASS"));
@@ -36,6 +36,15 @@ public class Config {
         catch (IOException e) {
             e.printStackTrace();
         }
+        return dataSource;*/
+        try {
+            dataSource.setDriverClass("org.postgresql.Driver");
+            dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/shop_db");
+            dataSource.setUser("postgres");
+            dataSource.setPassword("alex");
+        } catch (PropertyVetoException e) {
+            throw new RuntimeException(e);
+        }
         return dataSource;
     }
 
@@ -45,16 +54,18 @@ public class Config {
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan("com.busel.spring.shop_rest.entities");
         Properties hibernateProperties = new Properties();
-        Properties props = new Properties();
-       try (FileInputStream fis = new FileInputStream("C:\\Users\\Alexandr\\Downloads\\backend\\db.properties")) {
-           props.load(fis);
-           hibernateProperties.setProperty("hibernate.dialect", props.getProperty("POSTGRESQL_HIBERNATE_DIALECT"));
-           hibernateProperties.setProperty("hibernate.show_sql", props.getProperty("POSTGRESQL_CONSOLE_ENABLED"));
-           sessionFactory.setHibernateProperties(hibernateProperties);
+        /*Properties props = new Properties();
+        try (FileInputStream fis = new FileInputStream("C:\\Users\\Alexandr\\Downloads\\backend\\db.properties")) {
+            props.load(fis);
+            hibernateProperties.setProperty("hibernate.dialect", props.getProperty("POSTGRESQL_HIBERNATE_DIALECT"));
+            hibernateProperties.setProperty("hibernate.show_sql", props.getProperty("POSTGRESQL_CONSOLE_ENABLED"));
+            sessionFactory.setHibernateProperties(hibernateProperties);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
+        }*/
+        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        hibernateProperties.setProperty("hibernate.show_sql", "true");
+        sessionFactory.setHibernateProperties(hibernateProperties);
         return sessionFactory;
     }
 
