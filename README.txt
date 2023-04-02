@@ -1,30 +1,28 @@
-First, access the pgadmin4 via your favorite web browser by visiting the URL http://localhost:5050/. 
+After loading the project on local drive, you can make command 
+make dev - to build and run docker containers of the project
+make down - to stop docker containers.
+
+Then make sure that containers are working (command docker ps -a), and 
+access the pgadmin4 via your favorite web browser by visiting the URL http://localhost:5050/. 
 Use the admin@admin.com as the email address and root as the password to log in.
 Click Servers > Create > Server to create a new server.
 Select the General tab. For the name field, use any name. 
 In this case, I’ll use my_db. Now move to the Connection tab. 
-To get the value of Host, run the following commands.
-docker ps
-
-The command ps will show you brief information about all the running containers.
-Please read the Update section first. Now we can grab the container id for the PostgreSQL container.
-docker inspect fcc97e066cc8 | grep IPAddress
-The command inspect shows detailed information about a running container. 
-
-Finally, we have the value of Host, which in this case 192.168.80.2. 
-Use the value root for Username and root for Password, also tick the Save password? 
-box if you don’t want to type the password every time you log in to pgadmin4.
-
-Instead of IPAddress, you can use as the value of Host the container name 
-(in our case: green_shop_postgres_db),
-because the container name is identical to the hostname
+We have the value of Host, which in this case green_shop_postgres_db.
+(Instead of IPAddress, you can use as the value of Host the container name,
+because the container name is identical to the hostname.
 You can find the PostgreSQL database server’s container name using the docker ps command 
 and grab the name from the NAMES column. In this post, we have explicitly named the container 
-in the docker-compose.yml file, so you can refer to that as well
+in the docker-compose.yml file, so you can refer to that as well.)
+Use the value postgres for Username and alex for Password, also tick the Save password 
+if you don’t want to type the password every time you log in to pgadmin4.
 
 Then create database shop_db
 
-You can create tables in the database performing these queries:
+You can create tables in the database by backuping data using pgadmin4
+from the file shop_db.backup in folder postgres-data
+
+You can also create tables in the database performing these queries:
 
 USE shop_db;
 
@@ -33,7 +31,6 @@ CREATE TABLE categories (
   title varchar(32),
   PRIMARY KEY (id) 
 );
-
 
 CREATE TABLE products (
   id SERIAL NOT NULL,
@@ -94,11 +91,7 @@ DATA for queries (images are located in FRONTEND/src/assets... folder:
 	('Cumin', '../../assets/img/spices/cumin.jpg', 25, 10, 5);
 
 
-You also can create tables in the database by backuping data 
-from the file shop_db.backup in folder postgres-data
+The working site is located on address http://localhost:3000
 
-
-!!!!!!!!!!In TOMCAT in file C:\Tomcat\apache-tomcat-9.0.64\conf\context  tag CONTEXT must be with attribute allowCasualMultipartParsing="true"
-
- <Context allowCasualMultipartParsing="true">
-
+It is possible to modify frontend and changes immediately will be displayed on the site.
+The backend was developed in IntellijIdea, package file shop_rest.war is located in folder /backend/target

@@ -1,5 +1,5 @@
-postgres:
-	docker run -p 5432:5432 \
+#postgres:
+#	docker run -p 5432:5432 \
 		-d \
  		--rm \
 	 	--name postgresdb \
@@ -8,8 +8,8 @@ postgres:
 	 	-v ./postgres-data:/var/lib/postgresql/data \
 	 	postgres
 
-backend:
-	docker run -p 8080:8080 \
+#backend:
+#	docker run -p 8080:8080 \
 		--rm \
 		-d \
 		--name green-shop-backend \
@@ -18,32 +18,33 @@ backend:
 		--env-file ./config/development.env \
 		green-shop-backend
 
-frontend:
-	docker run -p 3000:3000 \
+#frontend:
+#	docker run -p 3000:3000 \
 		-d \
 		--rm \
 		--name green-shop-frontend \
 		-v ./frontend/src:/app/src \
 		green-shop-frontend
 
-stop:
-	docker stop postgresdb green-shop-frontend green-shop-backend
+#stop:
+#	docker stop postgresdb green-shop-frontend green-shop-backend
 
 dev:
 	docker-compose -f docker-compose.yml up -d
 
-build:
-	docker-compose -f docker-compose.production.yml up -d
+#build:
+#	docker-compose -f docker-compose.production.yml up -d
 
 down:
 	docker-compose down
 
 # SSH
 
-SSH_STRING:=root@31.184.254.152
+#SSH_STRING:=root@31.184.254.152
 
-ssh:
-	ssh $(SSH_STRING)
 
-copy-files:
-	scp -r ./* $(SSH_STRING):/root/app
+#ssh:
+#	ssh $(SSH_STRING)
+
+#copy-files:
+#	scp -r ./* $(SSH_STRING):/root/app

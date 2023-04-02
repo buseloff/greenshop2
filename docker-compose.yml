@@ -40,7 +40,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./tomcat:/usr/local/tomcat/webapps            
+      - ./backend/target/shop_rest.war:/usr/local/tomcat/webapps/shop_rest.war            
     depends_on:
       - postgresdb
 volumes:
