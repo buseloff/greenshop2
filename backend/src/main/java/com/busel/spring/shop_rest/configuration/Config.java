@@ -39,7 +39,7 @@ public class Config {
         return dataSource;*/
         try {
             dataSource.setDriverClass("org.postgresql.Driver");
-            dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/shop_db");
+            dataSource.setJdbcUrl("jdbc:postgresql://green_shop_postgres_db:5432/shop_db");
             dataSource.setUser("postgres");
             dataSource.setPassword("alex");
         } catch (PropertyVetoException e) {
